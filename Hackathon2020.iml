@@ -90,5 +90,6 @@
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.4.0" level="project" />
     <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.4.2" level="project" />
     <orderEntry type="library" name="Maven: HtmlUnitDriver:org.openqa.selenium.htmlunit:2.42" level="project" />
+    <orderEntry type="library" name="htmlunit-driver-2.42.0-jar-with-dependencies" level="project" />
   </component>
 </module>

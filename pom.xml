@@ -40,7 +40,7 @@
             <artifactId>org.openqa.selenium.htmlunit</artifactId>
             <groupId>HtmlUnitDriver</groupId>
             <version>2.42</version>
-            <systemPath>${basedir}/lib/htmlunit-driver-2.42.0-jar-with-dependencies.jar</systemPath>
+            <systemPath>Users/tonywei/IntelliJIDEAProjects/Hackathon2020/lib/htmlunit-driver-2.42.0-jar-with-dependencies.jar</systemPath>
         </dependency>
 
         <dependency>
