@@ -2,5 +2,9 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+<<<<<<< HEAD
+=======
+    <mapping directory="$PROJECT_DIR$/src/main/java/HTMLUnitDriver" vcs="Git" />
+>>>>>>> d758cbeedd085e867a2ef715ab02f7782aa16a41
   </component>
 </project>
