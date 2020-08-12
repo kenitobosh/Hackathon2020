@@ -1,0 +1,82 @@
+HashMap<> map;
+
+
+Course: CS 225
+Section: CS 225 @ 10am in Siebel 1404
+
+class Course {
+  Section[] sections;
+}
+
+// Input
+ArrayList<Course> interestedCourses;
+
+(1) interestedCourses --> List of one section per course
+(2) Check that list to see if any sections conflict (two for loops)
+(3) If not: Keep it! If there is a conflict: drop it and go back to 1 with a new combination.
+
+4 sections per class
+
+Step 1:
+classes: [class1, class2, class3, class4]
+sectionIdx: [3, 3, 3, 3]
+activeClassIdx: 0
+
+sectionIdx[activeClassIdx]++
+
+step 2: [class1section3, class2section3, class3section3, class4section3]
+
+=====
+
+public int fib(int n) {
+  // Base case
+  if (n == 1 || n == 2) {
+    return 1;
+  }
+
+  // Recursive case
+  return fib(n-1) + fib(n-2);
+}
+
+n: #
+1: 1
+2: 1
+3: 2
+4: 3
+5: 5
+
+=====
+
+ArrayList<Course> interestedCourses;
+
+public ArrayList<Section> findSections() {
+  return findSections(new ArrayList<>());
+}
+
+public ArrayList<Section> findSections(ArrayList<Section> schedule) {
+  // Base case: If we have all of our sections, check if they work.
+  // Assumption: schedule has only sections that do not conflict.
+  if (schedule.size() == interestedCourses.size()) {
+    return schedule;
+  }
+
+  // Recursive case: Add a new section that works and check future courses.
+  int courseIdx = schedule.size();
+  Section[] sections = interestedCourses.get(courseIdx).sections;
+  for (Section section : sections) {
+    if (isAllowed(schedule, section)) {
+      schedule.add(section);
+      ArrayList<Schedule> potentialFullSchedule = findSections(schedule);
+      // If blank: failed.
+      // If not blank: succeeded!
+      if (!potentialFullSchedule.isEmpty()) {
+        return potentialFullSchedule;
+      }
+      schedule.remove(section);
+    }
+  }
+  return new ArrayList<>();
+}
+
+// Output: No conflicts, including all courses.
+ArrayList<Section> sections;
