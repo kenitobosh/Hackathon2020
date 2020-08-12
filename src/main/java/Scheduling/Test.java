@@ -31,6 +31,7 @@ public class Test
         {
             ClassInfo course = desire.get(i);
             ClassInfo trial = HTMLUnitDriverMain.list.get(course.getType()).get(i);
+            ArrayList<ClassInfo> schedule = new ArrayList<>();
             if(isPossible(schedule, course))
             {
                 addSort(res, course);
@@ -72,11 +73,11 @@ public class Test
 
         // Recursive case: Add a new section that works and check future courses.
         int courseIdx = schedule.size();
-        ClassInfo[] sections = info.get(courseIdx).sections;
+        List<ClassInfo> sections = (List<ClassInfo>) info.get(courseIdx);
         for (ClassInfo section : sections) {
             if (isPossible(schedule, section)) {
                 schedule.add(section);
-                ArrayList<Schedule> potentialFullSchedule = findSections(schedule);
+                ArrayList<ClassInfo> potentialFullSchedule = findSections(schedule);
                 // If blank: failed.
                 // If not blank: succeeded!
                 if (!potentialFullSchedule.isEmpty()) {
