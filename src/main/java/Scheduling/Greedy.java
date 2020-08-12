@@ -1,10 +1,12 @@
 package Scheduling;
 
+import HTMLUnitDriver.ClassInfo;
+
 import java.util.List;
-/*8
+/*
 public class Greedy 
 {
-    private List<Course> courses;
+    private List<ClassInfo> courses;
     private boolean possible;
 
     public void Schedule() {
@@ -12,7 +14,7 @@ public class Greedy
     }
 
     public void generate() {
-        for(Course course : courses) {
+        for(ClassInfo course : courses) {
             if(!setLecture(course)) {
                 possible = false;
                 return;
@@ -21,7 +23,7 @@ public class Greedy
         possible = true;
     }
 
-    private boolean setLecture(Course course) {
+    private boolean setLecture(ClassInfo course) {
         if (course.getLectures().size() > 0) {
             for (DetailedSection lecture : course.getLectures()) {
                 if (canBeAdded(lecture)) {
@@ -91,11 +93,11 @@ public class Greedy
         return true;
     }
 
-    public List<Course> getCourses() {
+    public List<ClassInfo> getCourses() {
         return courses;
     }
 
-    public void setCourses(List<Course> courses) {
+    public void setCourses(List<ClassInfo> courses) {
         this.courses = courses;
     }
 

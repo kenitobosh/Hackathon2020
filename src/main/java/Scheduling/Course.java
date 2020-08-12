@@ -1,5 +1,7 @@
 package Scheduling;
 
+import HTMLUnitDriver.ClassInfo;
+
 public class Course
 {
     boolean done;
@@ -14,5 +16,12 @@ public class Course
     }
 
     // Inputs From User To Set functions still need to be done
+    
+    public static ClassInfo add()
+    {
+        ClassInfo classes = null;
+        
+        return classes;
+    }
 
 }
