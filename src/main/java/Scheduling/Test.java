@@ -2,6 +2,8 @@ package Scheduling;
 
 import HTMLUnitDriver.ClassInfo;
 import HTMLUnitDriver.HTMLUnitDriverMain;
+import com.gargoylesoftware.htmlunit.html.Html;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,8 +11,8 @@ import java.util.List;
 
 public class Test
 {
-    private static List<ClassInfo> info;
-    private static List<ClassInfo> res;
+    public static List<ClassInfo> info;
+    public static List<ClassInfo> res;
 
     public Test()
     {
@@ -64,7 +66,7 @@ public class Test
         }
     }
 
-    public ArrayList<ClassInfo> findSections(ArrayList<ClassInfo> schedule) {
+    public ArrayList<ClassInfo> findSections(ArrayList<ClassInfo> schedule, HashMap<String, List<ClassInfo>> map) {
         // Base case: If we have all of our sections, check if they work.
         // Assumption: schedule has only sections that do not conflict.
         if (schedule.size() == info.size()) {
@@ -73,11 +75,11 @@ public class Test
 
         // Recursive case: Add a new section that works and check future courses.
         int courseIdx = schedule.size();
-        List<ClassInfo> sections = (List<ClassInfo>) info.get(courseIdx);
+        List<ClassInfo> sections = info;
         for (ClassInfo section : sections) {
             if (isPossible(schedule, section)) {
                 schedule.add(section);
-                ArrayList<ClassInfo> potentialFullSchedule = findSections(schedule);
+                ArrayList<ClassInfo> potentialFullSchedule = findSections(schedule, map);
                 // If blank: failed.
                 // If not blank: succeeded!
                 if (!potentialFullSchedule.isEmpty()) {
