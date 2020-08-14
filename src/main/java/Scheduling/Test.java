@@ -26,22 +26,6 @@ public class Test
         return info;
     }
 
-    public static void match(HashMap<String, List<ClassInfo>> classes, List<ClassInfo> desire)
-    {
-        //Sorting Algo
-        for(int i = 0; i < desire.size(); i++)
-        {
-            ClassInfo course = desire.get(i);
-            ClassInfo trial = HTMLUnitDriverMain.list.get(course.getType()).get(i);
-            ArrayList<ClassInfo> schedule = new ArrayList<>();
-            if(isPossible(schedule, course))
-            {
-                addSort(res, course);
-            }
-        }
-
-    }
-
     public static boolean isPossible(ArrayList<ClassInfo> schedule, ClassInfo wantClass)
     {
         for(ClassInfo course : res)
